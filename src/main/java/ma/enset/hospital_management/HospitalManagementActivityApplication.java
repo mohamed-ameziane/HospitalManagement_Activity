@@ -42,6 +42,11 @@ public class HospitalManagementActivityApplication implements CommandLineRunner 
         */
 
         patientRepository.save(patient);
+        patientRepository.save(new Patient(null, "Ahmed ", new Date(), true, 87));
+        patientRepository.save(new Patient(null, "Fatima Zahra ", new Date(), false, 65));
+        patientRepository.save(new Patient(null, "Omar ", new Date(), true, 72));
+        patientRepository.save(new Patient(null, "Leila ", new Date(), false, 90));
+
 
     }
 }
