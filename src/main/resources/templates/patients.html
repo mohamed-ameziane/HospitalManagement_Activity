@@ -35,6 +35,9 @@
                     <td th:text="${#dates.format(p.dateNaissance, 'dd-MM-yyyy')}"></td>
                     <td th:text="${p.isMalade ? 'Oui' : 'Non'}"></td>
                     <td th:text="${p.score}"></td>
+                    <td>
+                        <a onclick="return confirm('Are you sure?')" th:href="@{delete(id=${p.id}, page=${currentPage}, keyword=${keyword})}" class="btn btn-danger">Delete</a>
+                    </td>
                 </tr>
                 </tbody>
             </table>
