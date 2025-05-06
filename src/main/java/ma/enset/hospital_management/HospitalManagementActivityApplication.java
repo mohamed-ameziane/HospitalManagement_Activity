@@ -21,31 +21,32 @@ public class HospitalManagementActivityApplication implements CommandLineRunner 
 
     @Override
     public void run(String... args) throws Exception {
-        Patient patient = new Patient();
+        /*Patient patient = new Patient();
         patient.setId(null);
         patient.setNom("Amine");
         patient.setDateNaissance(new Date());
         patient.setMalade(true);
         patient.setScore(10);
 
-        /* En utilisant le constructeur avec params
+        En utilisant le constructeur avec params
         Patient patient = new Patient(null, "Amine", new Date(), true, 10);
-        */
 
-        /* En utilisant Builder
+
+        En utilisant Builder
         Patient patient = Patient.builder()
                 .nom("Amine")
                 .dateNaissance(new Date())
                 .isMalade(true)
                 .score(10)
                 .build();
-        */
 
-        patientRepository.save(patient);
-        patientRepository.save(new Patient(null, "Ahmed ", new Date(), true, 87));
-        patientRepository.save(new Patient(null, "Fatima Zahra ", new Date(), false, 65));
+
+        patientRepository.save(patient);*/
+//        patientRepository.save(new Patient(null, "", new Date(), true, 87));
+        /*patientRepository.save(new Patient(null, "Fatima Zahra ", new Date(), false, 65));
         patientRepository.save(new Patient(null, "Omar ", new Date(), true, 72));
         patientRepository.save(new Patient(null, "Leila ", new Date(), false, 90));
+        */
 
 
     }
