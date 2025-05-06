@@ -52,6 +52,6 @@ public class PatientController {
     public String save(Model model, @Valid Patient patient, BindingResult bindingResult){
         if(bindingResult.hasErrors()) return"formPatients";
         patientRepository.save(patient);
-        return "formPatients";
+        return "redirect:/formPatients";
     }
 }
