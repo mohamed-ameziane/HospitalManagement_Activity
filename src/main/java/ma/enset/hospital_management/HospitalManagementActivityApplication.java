@@ -2,6 +2,7 @@ package ma.enset.hospital_management;
 
 import ma.enset.hospital_management.entities.Patient;
 import ma.enset.hospital_management.repository.PatientRepository;
+import ma.enset.hospital_management.security.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -57,7 +58,7 @@ public class HospitalManagementActivityApplication implements CommandLineRunner 
 
     }
 
-    @Bean
+    /*@Bean
     CommandLineRunner commandLineRunner(JdbcUserDetailsManager jdbcUserDetailsManager) {
         PasswordEncoder passwordEncoder = passwordEncoder();
         return args -> {
@@ -73,6 +74,19 @@ public class HospitalManagementActivityApplication implements CommandLineRunner 
                         User.withUsername("admin").password(passwordEncoder.encode("admin")).roles("ADMIN", "USER").build()
                 );
             }
+        };
+    }*/
+
+    @Bean
+    CommandLineRunner commandLineRunnerUserDetails(AccountService accountService){
+        return args -> {
+            accountService.addNewRole("USER");
+            accountService.addNewRole("ADMIN");
+            accountService.addNewUser("amz1", "123456", "123456", "amz1@mail.com");
+            accountService.addNewUser("admin", "admin", "admin", "admin@mail.com");
+            accountService.affectRole("amz1", "USER");
+            accountService.affectRole("admin", "USER");
+            accountService.affectRole("admin", "ADMIN");
         };
     }
 
